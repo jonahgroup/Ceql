@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\Ceql.Contracts\Attributes\AutoSequence.cs" Link="Attributes\AutoSequence.cs" />
+    <Compile Include="..\..\Ceql.Contracts\Attributes\Field.cs" Link="Attributes\Field.cs" />
+    <Compile Include="..\..\Ceql.Contracts\Attributes\PrimaryKey.cs" Link="Attributes\PrimaryKey.cs" />
+    <Compile Include="..\..\Ceql.Contracts\Attributes\Schema.cs" Link="Attributes\Schema.cs" />
+    <Compile Include="..\..\Ceql.Contracts\Attributes\Sequence.cs" Link="Attributes\Sequence.cs" />
+    <Compile Include="..\..\Ceql.Contracts\Attributes\Table.cs" Link="Attributes\Table.cs" />
+    <Compile Include="..\..\Ceql.Contracts\Configuration\IConnectionConfig.cs" Link="Configuration\IConnectionConfig.cs" />
+    <Compile Include="..\..\Ceql.Contracts\Configuration\ICeqlConfiguration.cs" Link="Configuration\ICeqlConfiguration.cs" />
+    <Compile Include="..\..\Ceql.Contracts\Configuration\ICeqlSection.cs" Link="Configuration\ICeqlSection.cs" />
+    <Compile Include="..\..\Ceql.Contracts\Exceptions\ConnectorInstanceException.cs" Link="Exceptions\ConnectorInstanceException.cs" />
+    <Compile Include="..\..\Ceql.Contracts\Exceptions\InvalidConfigurationException.cs" Link="Exceptions\InvalidConfigurationException.cs" />
+    <Compile Include="..\..\Ceql.Contracts\Exceptions\TableAttributeNotFoundException.cs" Link="Exceptions\TableAttributeNotFoundException.cs" />
+    <Compile Include="..\..\Ceql.Contracts\IConnectorFormatter.cs" Link="IConnectorFormatter.cs" />
+    <Compile Include="..\..\Ceql.Contracts\IDataConnector.cs" Link="IDataConnector.cs" />
+    <Compile Include="..\..\Ceql.Contracts\ISchemaDomainGenerator.cs" Link="ISchemaDomainGenerator.cs" />
+    <Compile Include="..\..\Ceql.Contracts\ISelectAlias.cs" Link="ISelectAlias.cs" />
+    <Compile Include="..\..\Ceql.Contracts\ISqlExpression.cs" Link="ISqlExpression.cs" />
+    <Compile Include="..\..\Ceql.Contracts\ITable.cs" Link="ITable.cs" />
+    <Compile Include="..\..\Ceql.Contracts\ITransaction.cs" Link="ITransaction.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Data.Common" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Configuration\" />
+    <Folder Include="Attributes\" />
+    <Folder Include="Exceptions\" />
+  </ItemGroup>
+
+</Project>

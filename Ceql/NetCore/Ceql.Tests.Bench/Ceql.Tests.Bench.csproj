@@ -1,0 +1,46 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>    
+    <TargetFramework>netcoreapp1.1</TargetFramework>    
+    <PostBuildEvent>copy C:\Development\Source\Ceql\Ceql\NetCore\Ceql.Connectors\bin\Debug\netcoreapp1.1\Ceql.Connectors.dll Ceql.Connectors.dll</PostBuildEvent>    
+    <RunPostBuildEvent>Always</RunPostBuildEvent>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\Ceql.Tests.Bench\Domain\Customer.cs" Link="Domain\Customer.cs" />
+    <Compile Include="..\..\Ceql.Tests.Bench\Domain\CustomerModel.cs" Link="Domain\CustomerModel.cs" />
+    <Compile Include="..\..\Ceql.Tests.Bench\Domain\Order.cs" Link="Domain\Order.cs" />
+    <Compile Include="..\..\Ceql.Tests.Bench\Domain\OrderModel.cs" Link="Domain\OrderModel.cs" />
+    <Compile Include="..\..\Ceql.Tests.Bench\QueryExecution.cs" Link="QueryExecution.cs" />
+    <Compile Include="..\..\Ceql.Tests.Bench\QueryGeneration.cs" Link="QueryGeneration.cs" />
+    <Compile Include="..\..\Ceql.Tests.Bench\QueryGenerationSubClass.cs" Link="QueryGenerationSubClass.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="log4net" Version="2.0.8" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.0.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="1.1.11" />
+    <PackageReference Include="MSTest.TestFramework" Version="1.1.11" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Domain\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Ceql.Connectors\Ceql.Connectors.csproj" />
+    <ProjectReference Include="..\Ceql.Contracts\Ceql.Contracts.csproj" />
+    <ProjectReference Include="..\Ceql\Ceql.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Configs\Ceql.mysql.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{82a7f48d-3b50-4b1e-b82e-3ada8210c358}" />
+  </ItemGroup>
+
+</Project>

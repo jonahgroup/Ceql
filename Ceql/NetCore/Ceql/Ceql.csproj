@@ -1,0 +1,88 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>TRACE;DEBUG;NETCOREAPP1_1;NET_CORE;</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants>TRACE;RELEASE;NETCOREAPP1_1;NET_CORE;</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\Ceql\AbstractComposer.cs" Link="AbstractComposer.cs" />
+    <Compile Include="..\..\Ceql\Composition\Delegates.cs" Link="Composition\Delegates.cs" />
+    <Compile Include="..\..\Ceql\Composition\DeleteClause.cs" Link="Composition\DeleteClause.cs" />
+    <Compile Include="..\..\Ceql\Composition\EBooleanOperator.cs" Link="Composition\EBooleanOperator.cs" />
+    <Compile Include="..\..\Ceql\Composition\EJoinType.cs" Link="Composition\EJoinType.cs" />
+    <Compile Include="..\..\Ceql\Composition\ExpressionAggregator.cs" Link="Composition\ExpressionAggregator.cs" />
+    <Compile Include="..\..\Ceql\Composition\FromClause.cs" Link="Composition\FromClause.cs" />
+    <Compile Include="..\..\Ceql\Composition\FromClause`1.cs" Link="Composition\FromClause`1.cs" />
+    <Compile Include="..\..\Ceql\Composition\FromClause`2.cs" Link="Composition\FromClause`2.cs" />
+    <Compile Include="..\..\Ceql\Composition\FromClause`3.cs" Link="Composition\FromClause`3.cs" />
+    <Compile Include="..\..\Ceql\Composition\FromClause`4.cs" Link="Composition\FromClause`4.cs" />
+    <Compile Include="..\..\Ceql\Composition\FromClause`5.cs" Link="Composition\FromClause`5.cs" />
+    <Compile Include="..\..\Ceql\Composition\InsertClause.cs" Link="Composition\InsertClause.cs" />
+    <Compile Include="..\..\Ceql\Composition\SelectClause`1.cs" Link="Composition\SelectClause`1.cs" />
+    <Compile Include="..\..\Ceql\Composition\SelectClause`2.cs" Link="Composition\SelectClause`2.cs" />
+    <Compile Include="..\..\Ceql\Composition\SelectClause`3.cs" Link="Composition\SelectClause`3.cs" />
+    <Compile Include="..\..\Ceql\Composition\SelectClause`4.cs" Link="Composition\SelectClause`4.cs" />
+    <Compile Include="..\..\Ceql\Composition\SelectClause`5.cs" Link="Composition\SelectClause`5.cs" />
+    <Compile Include="..\..\Ceql\Composition\SelectClause`6.cs" Link="Composition\SelectClause`6.cs" />
+    <Compile Include="..\..\Ceql\Composition\UpdateClause.cs" Link="Composition\UpdateClause.cs" />
+    <Compile Include="..\..\Ceql\Composition\WhereClause.cs" Link="Composition\WhereClause.cs" />
+    <Compile Include="..\..\Ceql\Execution\Cache\CachedObject.cs" Link="Execution\Cache\CachedObject.cs" />
+    <Compile Include="..\..\Ceql\Execution\Cache\DataSourceCache.cs" Link="Execution\Cache\DataSourceCache.cs" />
+    <Compile Include="..\..\Ceql\Execution\Cache\VirtualDataCacheReader.cs" Link="Execution\Cache\VirtualDataCacheReader.cs" />
+    <Compile Include="..\..\Ceql\Execution\IVirtualDataReader.cs" Link="Execution\IVirtualDataReader.cs" />
+    <Compile Include="..\..\Ceql\Execution\ReaderLocator.cs" Link="Execution\ReaderLocator.cs" />
+    <Compile Include="..\..\Ceql\Execution\SelectEnumerator.cs" Link="Execution\SelectEnumerator.cs" />
+    <Compile Include="..\..\Ceql\Execution\Transaction.cs" Link="Execution\Transaction.cs" />
+    <Compile Include="..\..\Ceql\Execution\VirtualDataSource.cs" Link="Execution\VirtualDataSource.cs" />
+    <Compile Include="..\..\Ceql\Execution\VirtualDbCacheableReader.cs" Link="Execution\VirtualDbCacheableReader.cs" />
+    <Compile Include="..\..\Ceql\Execution\VirtualDbReader.cs" Link="Execution\VirtualDbReader.cs" />
+    <Compile Include="..\..\Ceql\Expressions\ConditionExpressionAnalyzer.cs" Link="Expressions\ConditionExpressionAnalyzer.cs" />
+    <Compile Include="..\..\Ceql\Expressions\MemberAccessDecoder.cs" Link="Expressions\MemberAccessDecoder.cs" />
+    <Compile Include="..\..\Ceql\Expressions\SelectExpressionAnalyzer.cs" Link="Expressions\SelectExpressionAnalyzer.cs" />
+    <Compile Include="..\..\Ceql\Formatters\BaseFormatter.cs" Link="Formatters\BaseFormatter.cs" />
+    <Compile Include="..\..\Ceql\Generation\InsertStatementGenerator.cs" Link="Generation\InsertStatementGenerator.cs" />
+    <Compile Include="..\..\Ceql\Generation\SelectStatementGenerator.cs" Link="Generation\SelectStatementGenerator.cs" />
+    <Compile Include="..\..\Ceql\Model\FromAlias.cs" Link="Model\FromAlias.cs" />
+    <Compile Include="..\..\Ceql\Model\InsertStatementModel.cs" Link="Model\InsertStatementModel.cs" />
+    <Compile Include="..\..\Ceql\Model\SelectAlias.cs" Link="Model\SelectAlias.cs" />
+    <Compile Include="..\..\Ceql\Model\SelectStatementModel.cs" Link="Model\SelectStatementModel.cs" />
+    <Compile Include="..\..\Ceql\Model\SqlSnippet.cs" Link="Model\SqlSnippet.cs" />
+    <Compile Include="..\..\Ceql\SelectStatementExtensions.cs" Link="SelectStatementExtensions.cs" />
+    <Compile Include="..\..\Ceql\Statements\InsertStatement.cs" Link="Statements\InsertStatement.cs" />
+    <Compile Include="..\..\Ceql\Statements\SelectStatement.cs" Link="Statements\SelectStatement.cs" />
+    <Compile Include="..\..\Ceql\Utils\TypeHelper.cs" Link="Utils\TypeHelper.cs" />
+    <Compile Include="..\..\Ceql\Utils\Utils.cs" Link="Utils\Utils.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Composition\" />
+    <Folder Include="Configuration\" />
+    <Folder Include="Execution\Cache\" />
+    <Folder Include="Generation\" />
+    <Folder Include="Expressions\" />
+    <Folder Include="Model\" />
+    <Folder Include="Formatters\" />
+    <Folder Include="Statements\" />
+    <Folder Include="Utils\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="log4net" Version="2.0.8" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.2" />
+    <PackageReference Include="System.Data.Common" Version="4.3.0" />
+    <PackageReference Include="System.Runtime.Loader" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Ceql.Contracts\Ceql.Contracts.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\Ceql.Connectors\MySqlFormatter.cs" Link="MySqlFormatter.cs" />
+    <Compile Include="..\..\Ceql.Connectors\MySql\DomainClassGenerator.cs" Link="MySql\DomainClassGenerator.cs" />
+    <Compile Include="..\..\Ceql.Connectors\MySql\Domain\Columns.cs" Link="MySql\Domain\Columns.cs" />
+    <Compile Include="..\..\Ceql.Connectors\MySql\Domain\Tables.cs" Link="MySql\Domain\Tables.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="7.0.7-m61" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Ceql.Contracts\Ceql.Contracts.csproj" />
+    <ProjectReference Include="..\Ceql\Ceql.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="MySql\Domain\" />
+  </ItemGroup>
+
+</Project>

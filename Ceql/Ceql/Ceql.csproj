@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{26B522C1-6D51-412E-8EB3-5DE31E16DD2A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Ceql</RootNamespace>
+    <AssemblyName>Ceql</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AbstractComposer.cs" />
+    <Compile Include="Composition\Delegates.cs" />
+    <Compile Include="Composition\DeleteClause.cs" />
+    <Compile Include="Composition\EBooleanOperator.cs" />
+    <Compile Include="Composition\EJoinType.cs" />
+    <Compile Include="Composition\ExpressionAggregator.cs" />
+    <Compile Include="Composition\FromClause.cs" />
+    <Compile Include="Composition\FromClause`1.cs" />
+    <Compile Include="Composition\FromClause`2.cs" />
+    <Compile Include="Composition\FromClause`3.cs" />
+    <Compile Include="Composition\FromClause`4.cs" />
+    <Compile Include="Composition\FromClause`5.cs" />
+    <Compile Include="Composition\InsertClause.cs" />
+    <Compile Include="Composition\SelectClause`1.cs" />
+    <Compile Include="Composition\SelectClause`2.cs" />
+    <Compile Include="Composition\SelectClause`3.cs" />
+    <Compile Include="Composition\SelectClause`4.cs" />
+    <Compile Include="Composition\SelectClause`5.cs" />
+    <Compile Include="Composition\SelectClause`6.cs" />
+    <Compile Include="Generation\FromClauseGenerator.cs" />
+    <Compile Include="Model\InsertStatementModel.cs" />
+    <Compile Include="SelectStatementExtensions.cs" />
+    <Compile Include="Statements\InsertStatement.cs" />
+    <Compile Include="Statements\SelectStatement.cs" />
+    <Compile Include="Model\SqlSnippet.cs" />
+    <Compile Include="Formatters\BaseFormatter.cs" />
+    <Compile Include="Execution\Transaction.cs" />
+    <Compile Include="Utils\TypeHelper.cs" />
+    <Compile Include="Composition\UpdateClause.cs" />
+    <Compile Include="Composition\WhereClause.cs" />
+    <Compile Include="Configuration\CeqlConfiguration.cs" />
+    <Compile Include="Configuration\CeqlSection.cs" />
+    <Compile Include="Execution\Cache\CachedObject.cs" />
+    <Compile Include="Execution\Cache\DataSourceCache.cs" />
+    <Compile Include="Execution\Cache\VirtualDataCacheReader.cs" />
+    <Compile Include="Execution\VirtualDbCacheableReader.cs" />
+    <Compile Include="Execution\ReaderLocator.cs" />
+    <Compile Include="Execution\VirtualDataSource.cs" />
+    <Compile Include="Execution\IVirtualDataReader.cs" />
+    <Compile Include="Execution\SelectEnumerator.cs" />
+    <Compile Include="Execution\VirtualDbReader.cs" />
+    <Compile Include="Expressions\ConditionExpressionAnalyzer.cs" />
+    <Compile Include="Model\FromAlias.cs" />
+    <Compile Include="Expressions\MemberAccessDecoder.cs" />
+    <Compile Include="Generation\InsertStatementGenerator.cs" />
+    <Compile Include="Model\SelectAlias.cs" />
+    <Compile Include="Expressions\SelectExpressionAnalyzer.cs" />
+    <Compile Include="Model\SelectStatementModel.cs" />
+    <Compile Include="Generation\SelectStatementGenerator.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\Utils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ceql.Contracts\Ceql.Contracts.csproj">
+      <Project>{aa6ec322-6d47-4445-a2a5-8f4ad83633d0}</Project>
+      <Name>Ceql.Contracts</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
