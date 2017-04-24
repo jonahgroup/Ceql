@@ -13,6 +13,11 @@
     {
         public void GenerateDomain(string schemaName, string nameSpace)
         {
+
+            // create directory for schemaname
+            Directory.CreateDirectory(schemaName);        
+            
+            
             // get all schema tables
             var schema = From<Tables>()
                 .Where(t => t.TableSchema == schemaName)
@@ -27,7 +32,7 @@
             
             // get all columns
             var tables = from columns in From<Columns>()
-                 .Where(c => In(tableNames, c.TableName))
+                 .Where(c => In(tableNames, c.TableName) && c.TableSchema == schemaName)
                  .Select(c => c)
                  .GroupBy(c => c.TableName)
                          join table in schema on columns.Key equals table.TableName
@@ -44,7 +49,7 @@
 
                 // convert to type name
                 var typeName = ToTypeName(table.TableName);
-                using (var stream = File.Create(typeName + ".cs"))
+                using (var stream = File.Create(Path.Combine(schemaName,typeName + ".cs")))
                 {
                     using (var file = new StreamWriter(stream))
                     {
@@ -149,8 +154,11 @@
         private static Dictionary<string, string> TypeMap = new Dictionary<string, string>
         {
             {"timestamp","DateTime" },
+            {"datetime","DateTime"},
             {"int", "int" },
-            {"varchar","string" }
+            {"varchar","string" },
+            {"float","float"},
+            {"text","string"}
         };
 
         private string ToType(string typeName)
