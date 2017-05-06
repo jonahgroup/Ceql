@@ -25,6 +25,6 @@ namespace Ceql.Tests.Bench.Domain
         [Field(CUSTOMER_ID, "INTEGER")]
         public int CustomerId { get; set; }
         [Field(USER_ID, "INTEGER")]
-        public int UserId { get; set; }
+        public int? UserId { get; set; }
     }
 }

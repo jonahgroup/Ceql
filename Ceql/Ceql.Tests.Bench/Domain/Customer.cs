@@ -25,7 +25,7 @@ namespace Ceql.Tests.Bench.Domain
         [Field(CREATE_TS, "TIMESTAMP")]
         public DateTime CreateTs { get; set; }
         [Field(CUSTOMER_TYPE_ID, "INTEGER")]
-        public int CustomerTypeId { get; set; }
+        public int? CustomerTypeId { get; set; }
         [Field(TYPE_CD, "VARCHAR")]
         public string TypeCd { get; set; }
         [Field(TYPE_DESC, "VARCHAR")]

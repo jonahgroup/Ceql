@@ -27,6 +27,15 @@
             Assert.IsTrue(orders != null);
         }
 
+        [TestMethod]
+        public void NullablePrimitives()
+        {
+            var customers = From<Customer>()
+                .Select(customer => customer).ToList();
+
+            Assert.IsTrue(customers.Any());
+        }
+
 
         [TestMethod]
         public void InsertExec() {
@@ -42,15 +51,17 @@
                     CreateTs = DateTime.Now,
                     CustomerId = 11,
                     UserId = 23
+                },
+                new Order {
+                    CreateTs = DateTime.Now,
+                    CustomerId = 11,
+                    UserId = null
                 }
             };
 
             Transaction(t =>
             {
                 t.Insert(orders);
-
-
-
             }).Execute();
         }
 
@@ -58,7 +69,7 @@
         [TestMethod]
         public void SchemaDomainGeneration()
         {
-            new DomainClassGenerator().GenerateDomain("Ceql","Sample.Domain");
+            new DomainClassGenerator().GenerateDomain("ceql","Sample.Domain");
         }
 
 
