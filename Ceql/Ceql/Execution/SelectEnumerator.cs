@@ -41,6 +41,9 @@ namespace Ceql.Execution
             {
                 var tuple = MemberMapping[i];
                 var v = reader[tuple.Item1];
+
+                // null values are skipped
+                // property vlues will be set to their defaults
                 if (v == DBNull.Value) continue;
 
                 //set field
@@ -57,20 +60,33 @@ namespace Ceql.Execution
         }
 
 
-
+        /// <summary>
+        /// Sets value on a property
+        /// </summary>
+        /// <param name="instance"></param>
+        /// <param name="info"></param>
+        /// <param name="value"></param>
         private void SetValue(object instance, PropertyInfo info, object value)
         {
             if (IsNullable(info))
             {
+                info.SetValue(instance, value);
                 return;
             }
             info.SetValue(instance,value);
         }
 
+        /// <summary>
+        /// Sets value on a field info
+        /// </summary>
+        /// <param name="instance"></param>
+        /// <param name="info"></param>
+        /// <param name="value"></param>
         private void SetValue(object instance, FieldInfo info, object value)
         {
             if (IsNullable(info))
             {
+                info.SetValue(instance, value);
                 return;
             }
             info.SetValue(instance,value);
