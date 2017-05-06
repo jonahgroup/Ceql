@@ -3,7 +3,7 @@
       "Connections": [
         {
           "Name": "DEV",
-          "ConnectionString": "server=127.0.0.1;port=3306;database=ceql;user=ceql;password=123123",
+          "ConnectionString": "server=127.0.0.1;port=3306;database=ceql;user=ceql;password=12345678",
           "Connector": "Ceql.Connectors.MySqlDbConnector, Ceql.Connectors",
           "Formatter": "Ceql.Connectors.MySqlFormatter, Ceql.Connectors",
           "Default": true
