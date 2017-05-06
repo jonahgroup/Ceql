@@ -18,6 +18,11 @@
 
         public override object Format(object obj)
         {
+
+            if (obj == null) {
+                return "null";
+            }
+
             if (obj is DateTime)
             {
                 var date = ((DateTime)obj).ToUniversalTime();
