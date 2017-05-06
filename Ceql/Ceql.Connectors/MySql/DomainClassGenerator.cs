@@ -99,9 +99,16 @@
                                 file.WriteLine("[PrimaryKey]");
                             }
 
+                            var colType = ToType(column.DataType);
+                            var nullable = "";
+                            if (column.IsNullable == "YES" && colType != "string")
+                            {
+                                nullable = "?";
+                            }
+
                             file.Write('\t');
                             file.Write('\t');
-                            file.WriteLine("public " + ToType(column.DataType) + " " + ToColumnName(typeName, column.ColumnName) + " { get; set; }");
+                            file.WriteLine("public " + colType + nullable + " " + ToColumnName(typeName, column.ColumnName) + " { get; set; }");
                         }
 
                         file.Write('\t');
