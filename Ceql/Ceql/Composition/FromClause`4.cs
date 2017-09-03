@@ -30,11 +30,14 @@ namespace Ceql.Composition
             return fc;
         }
 
+        public WhereClause<T1, T2, T3, T4> Where(Expression<BooleanExpression<T1, T2, T3, T4>> filter)
+        {
+            return new WhereClause<T1, T2, T3, T4>(this, filter);
+        }
 
         public SelectClause<T1, T2, T3, T4, TResult> Select<TResult>(Expression<SelectExpression<T1, T2, T3, T4, TResult>> select)
         {
             return new SelectClause<T1, T2, T3, T4, TResult>(this, null, select);
         }
-
     }
 }

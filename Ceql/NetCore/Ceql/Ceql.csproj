@@ -5,9 +5,9 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Company></Company>
     <Authors>Dmitry Rogozhkin</Authors>
-    <AssemblyVersion>0.0.4.0</AssemblyVersion>
-    <FileVersion>0.0.4.0</FileVersion>
-    <Version>0.0.4</Version>
+    <AssemblyVersion>0.0.7.0</AssemblyVersion>
+    <FileVersion>0.0.7.0</FileVersion>
+    <Version>0.0.7</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -40,6 +40,11 @@
     <Compile Include="..\..\Ceql\Composition\SelectClause`6.cs" Link="Composition\SelectClause`6.cs" />
     <Compile Include="..\..\Ceql\Composition\UpdateClause.cs" Link="Composition\UpdateClause.cs" />
     <Compile Include="..\..\Ceql\Composition\WhereClause.cs" Link="Composition\WhereClause.cs" />
+    <Compile Include="..\..\Ceql\Composition\WhereClause`1.cs" Link="Composition\WhereClause`1.cs" />
+    <Compile Include="..\..\Ceql\Composition\WhereClause`2.cs" Link="Composition\WhereClause`2.cs" />
+    <Compile Include="..\..\Ceql\Composition\WhereClause`3.cs" Link="Composition\WhereClause`3.cs" />
+    <Compile Include="..\..\Ceql\Composition\WhereClause`4.cs" Link="Composition\WhereClause`4.cs" />
+    <Compile Include="..\..\Ceql\Composition\WhereClause`5.cs" Link="Composition\WhereClause`5.cs" />
     <Compile Include="..\..\Ceql\Execution\Cache\CachedObject.cs" Link="Execution\Cache\CachedObject.cs" />
     <Compile Include="..\..\Ceql\Execution\Cache\DataSourceCache.cs" Link="Execution\Cache\DataSourceCache.cs" />
     <Compile Include="..\..\Ceql\Execution\Cache\VirtualDataCacheReader.cs" Link="Execution\Cache\VirtualDataCacheReader.cs" />
@@ -69,7 +74,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Composition\" />
     <Folder Include="Configuration\" />
     <Folder Include="Execution\Cache\" />
     <Folder Include="Generation\" />

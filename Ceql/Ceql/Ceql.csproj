@@ -62,6 +62,11 @@
     <Compile Include="Composition\SelectClause`4.cs" />
     <Compile Include="Composition\SelectClause`5.cs" />
     <Compile Include="Composition\SelectClause`6.cs" />
+    <Compile Include="Composition\WhereClause`1.cs" />
+    <Compile Include="Composition\WhereClause`2.cs" />
+    <Compile Include="Composition\WhereClause`3.cs" />
+    <Compile Include="Composition\WhereClause`4.cs" />
+    <Compile Include="Composition\WhereClause`5.cs" />
     <Compile Include="Generation\FromClauseGenerator.cs" />
     <Compile Include="Model\InsertStatementModel.cs" />
     <Compile Include="SelectStatementExtensions.cs" />

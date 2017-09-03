@@ -67,11 +67,11 @@
                         if (!String.IsNullOrEmpty(table.TableSchema))
                         {
                             file.Write('\t');
-                            file.WriteLine("[Schema(\"" + table.TableSchema + "\")]");
+                            file.WriteLine("[Schema(\"" + table.TableSchema.ToUpper() + "\")]");
                         }
 
                         file.Write('\t');
-                        file.WriteLine("[Table(\"" + table.TableName + "\")]");
+                        file.WriteLine("[Table(\"" + table.TableName.ToUpper() + "\")]");
                         file.Write('\t');
                         file.WriteLine(@"public class " + typeName + " : ITable");
                         file.Write('\t');

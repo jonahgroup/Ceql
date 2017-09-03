@@ -34,14 +34,14 @@ namespace Ceql.Model
 
         public string ApplyParameters(T value)
         {
-            var counter = 0;
-            // todo (dr): inefficient, refactor
+            var fields = Fields.ToArray();
+               // todo (dr): inefficient, refactor
             var sql = Sql;
-            foreach (var field in Fields)
+            for(var i=fields.Length - 1; i >= 0; i--)
             {
+                var field = fields[i];
                 var v = field.GetValue(value);
-                sql = sql.Replace(("@p" + counter), _formatter.Format(v).ToString());
-                counter++;
+                sql = sql.Replace(("@p" + i), _formatter.Format(v).ToString());
             }
             return sql;
         }
