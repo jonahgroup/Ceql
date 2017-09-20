@@ -67,9 +67,13 @@
     <Compile Include="Composition\WhereClause`3.cs" />
     <Compile Include="Composition\WhereClause`4.cs" />
     <Compile Include="Composition\WhereClause`5.cs" />
+    <Compile Include="Generation\DeleteStatementGenerator.cs" />
     <Compile Include="Generation\FromClauseGenerator.cs" />
+    <Compile Include="Model\DeleteStatementModel.cs" />
     <Compile Include="Model\InsertStatementModel.cs" />
+    <Compile Include="Model\StatementModel.cs" />
     <Compile Include="SelectStatementExtensions.cs" />
+    <Compile Include="Statements\DeleteStatement.cs" />
     <Compile Include="Statements\InsertStatement.cs" />
     <Compile Include="Statements\SelectStatement.cs" />
     <Compile Include="Model\SqlSnippet.cs" />

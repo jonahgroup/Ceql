@@ -1,14 +1,10 @@
 ﻿using Ceql.Contracts;
 using Ceql.Model;
+using Ceql.Statements;
 
 namespace Ceql.Composition
 {
-    public class DeleteClause : ISqlExpression
-    {
-        public string Sql { get; private set; }
-    }
-
-    public class DeleteClause<T> : DeleteClause
+    public class DeleteClause<T> : DeleteStatement<T> where T: ITable
     {
     }
 }

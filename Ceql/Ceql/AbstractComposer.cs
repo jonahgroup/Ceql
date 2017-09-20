@@ -16,7 +16,6 @@
 
         public static ITransaction Transaction(Action<ITransaction> transactionBody)
         {
-
             return new Transaction(transactionBody);
         }
 

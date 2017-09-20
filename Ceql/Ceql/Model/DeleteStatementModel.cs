@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace Ceql.Model
 {
-    public class InsertStatementModel<T> : StatementModel<T> where T : ITable
+    public class DeleteStatementModel<T> : StatementModel<T> where T : ITable
     {
-        public InsertStatementModel(IConnectorFormatter formatter) : base(formatter)
-        { }
-        
+        public DeleteStatementModel(IConnectorFormatter formatter) :base(formatter)
+        {}
+
         private object lck = new object();
         private string _sql;
 
@@ -31,10 +31,11 @@ namespace Ceql.Model
                 }
 
                 var count = 0;
-                _sql = String.Format("INSERT INTO {0} ({1}) VALUES ({2})",
+                _sql = String.Format("DELETE FROM {0} WHERE {1}",
                     Formatter.TableNameEscape(SchemaName, TableName),
-                    String.Join(",", Fields.Select(f => f.GetCustomAttribute<Contracts.Attributes.Field>().Name)),
-                    String.Join(",", Fields.Select(f => "@p" + count++)));
+                    String.Join(" AND ", Fields.Select(f => {
+                        return f.GetCustomAttribute<Contracts.Attributes.Field>().Name + " = @p" + count++;
+                    })));
 
                 return _sql;
             }

@@ -12,7 +12,13 @@ namespace Ceql.Statements
 {
     public class InsertStatement<T> : ISqlExpression where T : ITable
     {
-        public Type Type { get; protected set; }
+        public Type Type
+        {
+            get
+            {
+                return typeof(T);
+            }
+        }
 
         public string Sql
         {
@@ -29,6 +35,5 @@ namespace Ceql.Statements
                 return InsertStatementGenerator.Generate<T>(this);
             }
         }
-
     }
 }

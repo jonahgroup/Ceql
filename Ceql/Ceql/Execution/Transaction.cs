@@ -4,17 +4,11 @@
     using System;
     using System.Collections.Generic;
     using System.Data;
-    using System.IO;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using Ceql.Composition;
-    using Ceql.Generation;
     using Ceql.Configuration;
 
     public class Transaction : ITransaction
     {
-
         private Action<ITransaction> _body;
         private IDbConnection _connection;
         private IDataConnector _connector;
@@ -24,33 +18,55 @@
             _body = transactionBody;
         }
 
-        public IEnumerable<T> Insert<T>(IEnumerable<T> values) where T : ITable
+        public IEnumerable<T> Insert<T>(IEnumerable<T> entities) where T : ITable
         {
             var model = new InsertClause<T>().Model;
-
             var command = _connection.CreateCommand();
 
-            foreach (var value in values)
+            foreach (var entity in entities)
             {
-                command.CommandText = model.ApplyParameters(value);
-                _connector.PreInsert<T>(command, value);
+                command.CommandText = model.ApplyParameters(entity);
+                _connector.PreInsert<T>(command, entity);
                 command.ExecuteScalar();
-                _connector.PostInsert<T>(command, value);
+                _connector.PostInsert<T>(command, entity);
             }
 
-            return values;
+            return entities;
         }
 
-        public DeleteClause<T> Delete<T>(IEnumerable<T> values)
+        /// <summary>
+        /// Generates and executes DELETE statement for each 
+        /// entity in the entities collection
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="entities"></param>
+        public void Delete<T>(IEnumerable<T> entities) where T : ITable
         {
-            return new DeleteClause<T>();
+            var model = new DeleteClause<T>().Model;
+            var command = _connection.CreateCommand();
+
+            foreach (var entity in entities)
+            {
+                command.CommandText = model.ApplyParameters(entity);
+                command.ExecuteScalar();
+            }
         }
 
-        public UpdateClause<T> Update<T>(IEnumerable<T> values)
+        /// <summary>
+        /// Update statement is implemented as a series of DELETE and INSERT statements
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="values"></param>
+        public void Update<T>(IEnumerable<T> entities) where T : ITable
         {
-            return new UpdateClause<T>();
+            Delete(entities);
+            Insert(entities);
+            return; 
         }
 
+        /// <summary>
+        /// Executes transaction statements
+        /// </summary>
         public void Execute()
         {
             _connection = CeqlConfiguration.Instance.GetConnection();

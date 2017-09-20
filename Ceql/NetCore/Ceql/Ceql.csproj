@@ -59,14 +59,18 @@
     <Compile Include="..\..\Ceql\Expressions\MemberAccessDecoder.cs" Link="Expressions\MemberAccessDecoder.cs" />
     <Compile Include="..\..\Ceql\Expressions\SelectExpressionAnalyzer.cs" Link="Expressions\SelectExpressionAnalyzer.cs" />
     <Compile Include="..\..\Ceql\Formatters\BaseFormatter.cs" Link="Formatters\BaseFormatter.cs" />
+    <Compile Include="..\..\Ceql\Generation\DeleteStatementGenerator.cs" Link="Generation\DeleteStatementGenerator.cs" />
     <Compile Include="..\..\Ceql\Generation\InsertStatementGenerator.cs" Link="Generation\InsertStatementGenerator.cs" />
     <Compile Include="..\..\Ceql\Generation\SelectStatementGenerator.cs" Link="Generation\SelectStatementGenerator.cs" />
+    <Compile Include="..\..\Ceql\Model\DeleteStatementModel.cs" Link="Model\DeleteStatementModel.cs" />
     <Compile Include="..\..\Ceql\Model\FromAlias.cs" Link="Model\FromAlias.cs" />
     <Compile Include="..\..\Ceql\Model\InsertStatementModel.cs" Link="Model\InsertStatementModel.cs" />
     <Compile Include="..\..\Ceql\Model\SelectAlias.cs" Link="Model\SelectAlias.cs" />
     <Compile Include="..\..\Ceql\Model\SelectStatementModel.cs" Link="Model\SelectStatementModel.cs" />
     <Compile Include="..\..\Ceql\Model\SqlSnippet.cs" Link="Model\SqlSnippet.cs" />
+    <Compile Include="..\..\Ceql\Model\StatementModel.cs" Link="Model\StatementModel.cs" />
     <Compile Include="..\..\Ceql\SelectStatementExtensions.cs" Link="SelectStatementExtensions.cs" />
+    <Compile Include="..\..\Ceql\Statements\DeleteStatement.cs" Link="Statements\DeleteStatement.cs" />
     <Compile Include="..\..\Ceql\Statements\InsertStatement.cs" Link="Statements\InsertStatement.cs" />
     <Compile Include="..\..\Ceql\Statements\SelectStatement.cs" Link="Statements\SelectStatement.cs" />
     <Compile Include="..\..\Ceql\Utils\TypeHelper.cs" Link="Utils\TypeHelper.cs" />
