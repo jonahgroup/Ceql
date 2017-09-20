@@ -20,7 +20,16 @@
 
         public IEnumerable<T> Insert<T>(IEnumerable<T> entities) where T : ITable
         {
-            var model = new InsertClause<T>().Model;
+            return Insert(entities, new InsertClause<T>().Model);
+        }
+        
+        public IEnumerable<T> FullInsert<T>(IEnumerable<T> entities) where T : ITable
+        {
+            return Insert(entities,new InsertClause<T>().FullModel);
+        }
+
+        private IEnumerable<T> Insert<T>(IEnumerable<T> entities, Model.InsertStatementModel<T> model) where T : ITable
+        {
             var command = _connection.CreateCommand();
 
             foreach (var entity in entities)
@@ -30,7 +39,6 @@
                 command.ExecuteScalar();
                 _connector.PostInsert<T>(command, entity);
             }
-
             return entities;
         }
 

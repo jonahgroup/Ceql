@@ -1,13 +1,10 @@
-﻿using Ceql.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Ceql.Model
+﻿namespace Ceql.Model
 {
+    using Ceql.Contracts;
+    using System;
+    using System.Linq;
+    using System.Reflection;
+
     public class DeleteStatementModel<T> : StatementModel<T> where T : ITable
     {
         public DeleteStatementModel(IConnectorFormatter formatter) :base(formatter)

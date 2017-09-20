@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Ceql.Contracts
+﻿namespace Ceql.Contracts
 {
+    using System.Collections.Generic;
+
     public interface ITransaction
     {
         void Execute();
         IEnumerable<T> Insert<T>(IEnumerable<T> records) where T : ITable;
+        IEnumerable<T> FullInsert<T>(IEnumerable<T> records) where T : ITable;
         void Delete<T>(IEnumerable<T> records) where T : ITable;
         void Update<T>(IEnumerable<T> records) where T : ITable;
     }

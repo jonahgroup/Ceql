@@ -16,14 +16,22 @@
 
     public static class InsertStatementGenerator
     {
-        public static InsertStatementModel<T> Generate<T>(InsertStatement<T> statement) where T : ITable
+        public static InsertStatementModel<T> Generate<T>(InsertStatement<T> statement, bool isFull = false) where T : ITable
         {
-
             var table = TypeHelper.GetType<Attributes.Table>(statement.Type);
 
             // dont take  keys fields
-            var fields = TypeHelper.GetPropertiesForAttribute<Attributes.Field>(table)
-                .Where(f => f.GetCustomAttribute<Attributes.AutoSequence>() == null);
+            IEnumerable<PropertyInfo> fields = null;
+
+            if (isFull)
+            {
+                fields = TypeHelper.GetPropertiesForAttribute<Attributes.Field>(table);
+            }
+            else
+            {
+                fields = TypeHelper.GetPropertiesForAttribute<Attributes.Field>(table)
+                    .Where(f => f.GetCustomAttribute<Attributes.AutoSequence>() == null);
+            }
 
             var tableName = TypeHelper.GetAttribute<Attributes.Table>(table).Name;
             var schemaAtr = TypeHelper.GetAttribute<Attributes.Schema>(table);

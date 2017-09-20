@@ -28,11 +28,25 @@ namespace Ceql.Statements
             }
         }
 
+        /// <summary>
+        /// Excludes auto generated column values
+        /// </summary>
         public InsertStatementModel<T> Model
         {
             get
             {
                 return InsertStatementGenerator.Generate<T>(this);
+            }
+        }
+
+        /// <summary>
+        /// Includes all fields
+        /// </summary>
+        public InsertStatementModel<T> FullModel
+        {
+            get
+            {
+                return InsertStatementGenerator.Generate<T>(this,true);
             }
         }
     }
