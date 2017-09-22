@@ -68,7 +68,7 @@
         public void Update<T>(IEnumerable<T> entities) where T : ITable
         {
             Delete(entities);
-            Insert(entities);
+            FullInsert(entities);
             return; 
         }
 
