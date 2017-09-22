@@ -165,6 +165,7 @@
             {"int", "int" },
             {"varchar","string" },
             {"float","float"},
+            {"decimal","decimal"},
             {"text","string"}
         };
 
