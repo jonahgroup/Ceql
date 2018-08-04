@@ -11,11 +11,15 @@
 
     public class DomainClassGenerator : AbstractComposer, ISchemaDomainGenerator
     {
-        public void GenerateDomain(string schemaName, string nameSpace)
+        public void GenerateDomain(string schemaName, string nameSpace, string targetDir = null)
         {
+            if(targetDir == null)
+            {
+                targetDir = schemaName;
+            }
 
             // create directory for schemaname
-            Directory.CreateDirectory(schemaName);        
+            Directory.CreateDirectory(targetDir);        
             
             
             // get all schema tables
@@ -49,7 +53,7 @@
 
                 // convert to type name
                 var typeName = ToTypeName(table.TableName);
-                using (var stream = File.Create(Path.Combine(schemaName,typeName + ".cs")))
+                using (var stream = File.Create(Path.Combine(targetDir,typeName + ".cs")))
                 {
                     using (var file = new StreamWriter(stream))
                     {
@@ -166,6 +170,7 @@
             {"varchar","string" },
             {"float","float"},
             {"decimal","decimal"},
+            {"double","double"},
             {"text","string"}
         };
 
