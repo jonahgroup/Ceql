@@ -33,7 +33,7 @@ namespace Ceql.Model
                 var count = 0;
                 _sql = String.Format("INSERT INTO {0} ({1}) VALUES ({2})",
                     Formatter.TableNameEscape(SchemaName, TableName),
-                    String.Join(",", Fields.Select(f => f.GetCustomAttribute<Contracts.Attributes.Field>().Name)),
+                    String.Join(",", Fields.Select(f => Formatter.ColumnNameEscape(f.GetCustomAttribute<Contracts.Attributes.Field>().Name))),
                     String.Join(",", Fields.Select(f => "@p" + count++)));
 
                 return _sql;

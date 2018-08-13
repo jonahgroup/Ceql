@@ -58,5 +58,7 @@
         /// <param name="tableName"></param>
         /// <returns></returns>
         public abstract string TableNameEscape(string schemaName, string tableName);
+
+        public abstract string ColumnNameEscape(string columnName);
     }
 }

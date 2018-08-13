@@ -12,6 +12,8 @@ namespace Ceql.Contracts
 
         object Format(object obj);
 
-        string TableNameEscape(string schemaName,string tableName);
+        string TableNameEscape(string schemaName, string tableName);
+
+        string ColumnNameEscape(string columnName);
     }
 }

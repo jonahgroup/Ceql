@@ -80,7 +80,9 @@
                         file.WriteLine(@"public class " + typeName + " : ITable");
                         file.Write('\t');
                         file.WriteLine("{");
-
+                        file.Write('\t');file.Write('\t');
+                        file.WriteLine("public const string EntityName=\""+table.TableName.ToUpper()+"\";");
+                        file.WriteLine("");
                         foreach (var column in table.Columns)
                         {
                             file.Write('\t');

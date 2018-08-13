@@ -16,6 +16,11 @@
             return "`" + schemaName + "`.`" + tableName + "`";
         }
 
+        public override string ColumnNameEscape(string columnName)
+        {
+            return "`" + columnName + '`';
+        }
+
         public override object Format(object obj)
         {
 
@@ -42,7 +47,7 @@
 
             if (obj is string)
             {
-                return "'" + obj.ToString().Replace("'", "''") + "'";
+                return "'" + obj.ToString().Replace("'", "''").Replace("\\","\\\\") + "'";
             }
 
             // todo (dr): create InvalidFormatException type
